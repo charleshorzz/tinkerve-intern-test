@@ -1,3 +1,6 @@
+1. Run npm install to install all the dependencies required for the code to run
+2. Run npm start in frontend directory to run the script
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
