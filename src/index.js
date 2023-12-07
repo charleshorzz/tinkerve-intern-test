@@ -1,13 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import './assets/bootstrap.min.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider
+} from 'react-router-dom';
+import CustomerScreen from './screens/CustomerScreen.jsx';
+import ManagerScreen from './screens/ManagerScreen.jsx';
+import { Provider } from "react-redux"
+import store from './store.js';
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<App />}>
+      <Route path='/' element={<CustomerScreen />}/>
+      <Route path='/manager' element={<ManagerScreen />}/>
+    </Route>
+  )
+)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <RouterProvider router={router}/>
+    </Provider>
   </React.StrictMode>
 );
 
